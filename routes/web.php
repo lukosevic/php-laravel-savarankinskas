@@ -22,3 +22,4 @@ Route::post('/storeService', [ServiceController::class, 'store']);
 Route::get('/', [MasterController::class,'index']);
 Route::get('/add-master', [MasterController::class,'addMaster']);
 Route::post('/storeMaster', [MasterController::class, 'store']);
+Route::get('/master/delete/{master}', [MasterController::class, 'delete']);

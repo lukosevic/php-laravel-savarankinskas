@@ -14,8 +14,12 @@ class Master extends Model
         'lastName',
         'specialization',
         'city',
-        'service',
+        'gender',
+        'service_id',
         'photo',
 
     ];
+    public function service(){
+        return $this->belongsTo(Service::class);
+    }
 }

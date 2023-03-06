@@ -20,7 +20,7 @@ class CreateMastersTable extends Migration
             $table->string('specialization');
             $table->string('city');
             $table->string('gender');
-            $table->string('service');
+            $table->foreignId('service_id');
             $table->string('photo')->nullable();
             $table->timestamps();
         });

@@ -5,9 +5,9 @@
 <div class="masters">
     @foreach ($masters as $master)
     <div class="row">
-        <div class="info col-6">
+        <div class="card col-6">
             <div class="img">
-            <img src="{{asset('/storage/app/public/images/'.$master->photo)}}">
+            <img src="{{asset('/storage/'.$master->photo)}}">
             </div>
             <div class="name">
                 <p>{{$master->name}}</p>
@@ -16,10 +16,13 @@
                 <p>{{$master->lastName}}</p>
             </div>
             <div class="service">
-                <p>{{$master->service}}</p>
+                <p>{{$master->service->name}}</p>
             </div>
             <div class="city">
                 <p>{{$master->city}}</p>
+            </div>
+            <div class="delete">
+                <a href="/master/delete/{{$master->id}}">naikinti</a>
             </div>
         </div>
         <div class="rating col-6">

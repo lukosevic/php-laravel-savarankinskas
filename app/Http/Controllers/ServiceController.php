@@ -10,11 +10,10 @@ class ServiceController extends Controller
 {
     public function index(){
         $services = Service::all();
-        return view('main', compact('services'));
+        return view('pages.home', compact('services'));
     }
     public function addService(){
-        $services = Service::all();
-        return view('pages.add-service', compact('services'));
+        return view('pages.add-service');
     }
     public function store(Request $request){
         $validated = $request->validate([

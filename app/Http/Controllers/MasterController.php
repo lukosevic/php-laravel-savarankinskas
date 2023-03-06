@@ -38,10 +38,13 @@ class MasterController extends Controller
             'specialization'=>request('specialization'),
             'city'=>request('city'),
             'gender'=>request('gender'),
-            'service'=>request('service'),
+            'service_id'=>request('service'),
             'photo'=>$fileName,
         ]);
-
+        return redirect('/');
+    }
+    public function delete(master $master){
+        $master->delete();
         return redirect('/');
     }
 }

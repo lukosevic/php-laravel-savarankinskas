@@ -4,6 +4,7 @@
 
 <h1>Pridėti naują meistrą</h1>
 
+@include('_partials/error')
 <form action="/storeMaster" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group m-1">
@@ -28,7 +29,7 @@
     <select name="service">
         <option selected disabled>Servisas, kurioje meistras dirba</option>
         @foreach($services as $service)
-        <option value="{{$service->name}}">{{$service->name}}</option>
+        <option value="{{$service->id}}">{{$service->name}}</option>
         @endforeach
     </select>
     <button type="submit" class="btn btn-danger">Pridėti</button>
