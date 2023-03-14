@@ -11,6 +11,78 @@
     height: 25px;
     text-align: center;
 }
-div.card{
-    background-color: black;
+div.all{
+    background-color: gray;
+    margin-top: 25px;
+    border-radius: 15px;
+}
+div.info img{
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 15px;
+}
+div.info p{
+    margin-top: 15px;
+}
+div.rating{
+    position: relative;
+}
+div.edit{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.delete a{
+    text-decoration: none;
+    color: black;
+    font-size: 35px;
+}
+a.delete, a.edit{
+    margin-right: 25px;
+}
+a i{
+    border: 1px black solid;
+    padding: 5px;
+    border-radius: 12px;
+    background-color: lightgray;
+}
+.delete a i:hover{
+    background-color: lightyellow;
+    transition: 0.5s;
+    font-size: 40px;
+}
+.like a i{
+    text-decoration: none;
+    color: black;
+}
+.like{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 35px;
+    height: 100px;
+    margin-left: 150px;
+    align-items: center;
+}
+.like i{
+    margin-left: 15px;
+    font-size: 45px;
+}
+.like p{
+    font-size: 25px;
+    margin-top: 15px;
+}
+.like i:hover{
+    color: red;
+    transition: 0.5s;
+}
+.like button{
+    background: none;
+    border: none;
+}
+.rating{
+    display: flex;
+    flex-direction: row;
 }

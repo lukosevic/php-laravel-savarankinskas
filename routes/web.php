@@ -18,8 +18,17 @@ use App\Http\Controllers\MasterController;
 Route::get('/', [ServiceController::class,'index']);
 Route::get('/add-service', [ServiceController::class,'addService']);
 Route::post('/storeService', [ServiceController::class, 'store']);
+Route::get('/show-service', [ServiceController::class,'showService']);
+Route::get('/service/edit/{service}', [ServiceController::class,'editService']);
+Route::post('/update/service/{service}', [ServiceController::class,'storeUpdate']);
+Route::get('/service/delete/{service}', [ServiceController::class, 'delete']);
 
 Route::get('/', [MasterController::class,'index']);
 Route::get('/add-master', [MasterController::class,'addMaster']);
 Route::post('/storeMaster', [MasterController::class, 'store']);
 Route::get('/master/delete/{master}', [MasterController::class, 'delete']);
+Route::get('/master/edit/{master}', [MasterController::class,'editMaster']);
+Route::post('/update/master/{master}', [MasterController::class,'storeUpdate']);
+Route::get('/rate/{master}', [MasterController::class,'rateMaster']);
+Route::get('/search', [MasterController::class, 'search']);
+Route::post('/searchResults', [MasterController::class, 'searchResults']);

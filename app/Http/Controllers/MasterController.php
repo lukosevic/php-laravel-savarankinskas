@@ -11,7 +11,8 @@ class MasterController extends Controller
 {
     public function index(){
         $masters = Master::all();
-        return view('pages.home', compact('masters'));
+        $services = Service::all();
+        return view('pages.home', compact('masters'), compact('services'));
     }
 
     public function addMaster(){
@@ -39,12 +40,42 @@ class MasterController extends Controller
             'city'=>request('city'),
             'gender'=>request('gender'),
             'service_id'=>request('service'),
+            'rating'=>request('rating'),
             'photo'=>$fileName,
         ]);
         return redirect('/');
     }
     public function delete(master $master){
         $master->delete();
+        return redirect('/');
+    }
+    public function editMaster(Master $master){
+        $services = Service::all();
+        return view('pages.edit-master', compact('master'), compact('services'));
+    }
+    public function storeUpdate(Master $master,Request $request, Service $service){
+        if(request()->hasFile('photo')){
+            File::delete(storage_path('app/public/'.$master->photo));
+            $path = $request->file('photo')->store('public/images');
+            $fileName = str_replace('public','',$path);
+            Master::where('id',$master->id)->update(['photo'=>$fileName]);
+        }   
+        Master::where('id',$master->id)->update(
+            $request->only(['name', 'lastName', 'specialization', 'service_id', 'city', 'gender', 'rating'])
+        );
+        return redirect('/');
+    }
+    public function search(){
+        return view('pages.search');
+    }
+    public function searchResults(){
+        $results = Master::where('name', 'like', '%'.request('search').'%')->get();
+
+        return view('pages.search', compact('results'));
+    }
+    public function rateMaster(Master $master){
+        Master::where('id',$master->id)->increment('rating');
+        
         return redirect('/');
     }
 }

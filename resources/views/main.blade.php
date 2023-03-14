@@ -2,9 +2,6 @@
 <html lang="en">
 @include('_partials/head')
 <body>
-    <div class="container">
-        @include('_partials/top')
-    </div>
     <div class="container">  
         @yield('content')
     </div>

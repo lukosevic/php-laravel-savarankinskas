@@ -21,6 +21,7 @@ class CreateMastersTable extends Migration
             $table->string('city');
             $table->string('gender');
             $table->foreignId('service_id');
+            $table->integer('rating')->default(0);
             $table->string('photo')->nullable();
             $table->timestamps();
         });

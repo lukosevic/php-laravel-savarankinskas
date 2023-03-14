@@ -29,4 +29,22 @@ class ServiceController extends Controller
 
         return redirect('/');
     }
+    public function showService(){
+        $services = Service::all();
+        return view('pages.show-service', compact('services'));
+    }
+    public function editService(Service $service){
+        return view('pages.edit-service', compact('service'));
+    }
+    public function storeUpdate(Service $service,Request $request){
+        Service::where('id',$service->id)->update(
+            $request->only(['name', 'address', 'manager'])
+            
+        );
+        return redirect('/');
+    }
+    public function delete(Service $service){
+        $service->delete();
+        return redirect('/');
+    }
 }
